@@ -9,7 +9,6 @@ Breve introdução ao projeto,…
 
 ## ⚙️ Requisitos
 - Delphi 10+
-- Componentes XYZ
 
 ## 🚀 Instalação
 1. Clone o repositório  
@@ -28,4 +27,4 @@ Breve introdução ao projeto,…
 Para contribuir, crie uma *branch*, submeta *pull request*, explique suas mudanças.
 
 ## 📝 Licença
-Licenciado sob a **MIT License** (ou outra)
+Licenciado sob a **MIT License**
