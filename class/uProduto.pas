@@ -3,10 +3,10 @@ unit uProduto;
 interface
 
 uses
-  FireDAC.Comp.Client, System.SysUtils;
+  FireDAC.Comp.Client, System.SysUtils, uProdutoInterface;
 
 type
-  TProduto = class
+  TProduto = class(TInterfacedObject, IProduto)
   private
     FID: Integer;
     FNome: string;
