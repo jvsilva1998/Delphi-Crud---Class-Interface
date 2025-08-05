@@ -1,0 +1,66 @@
+unit uProduto;
+
+interface
+
+uses
+  FireDAC.Comp.Client, System.SysUtils;
+
+type
+  TProduto = class
+  private
+    FNome: string;
+    FQuantidade: Integer;
+    FConexao: TFDConnection;
+  public
+    constructor Create(AConexao: TFDConnection);
+    procedure SetNome(const Nome: string);
+    procedure SetQuantidade(const Quantidade: Integer);
+
+    procedure Postar;
+    procedure Carregar(Destino: TFDQuery);
+  end;
+
+implementation
+
+{ TProduto }
+
+constructor TProduto.Create(AConexao: TFDConnection);
+begin
+  FConexao := AConexao;
+end;
+
+procedure TProduto.SetNome(const Nome: string);
+begin
+  FNome := Trim(Nome);
+end;
+
+procedure TProduto.SetQuantidade(const Quantidade: Integer);
+begin
+  FQuantidade := Quantidade;
+end;
+
+procedure TProduto.Postar;
+var
+  Qry: TFDQuery;
+begin
+  Qry := TFDQuery.Create(nil);
+  try
+    Qry.Connection := FConexao;
+    Qry.SQL.Text := 'INSERT INTO PROD (NOME, QUANTIDADE) VALUES (:NOME, :QUANTIDADE)';
+    Qry.ParamByName('NOME').AsString := FNome;
+    Qry.ParamByName('QUANTIDADE').AsInteger := FQuantidade;
+    Qry.ExecSQL;
+  finally
+    Qry.Free;
+  end;
+end;
+
+procedure TProduto.Carregar(Destino: TFDQuery);
+begin
+  Destino.Close;
+  Destino.SQL.Text := 'SELECT * FROM PROD';
+  Destino.Open;
+end;
+
+end.
+

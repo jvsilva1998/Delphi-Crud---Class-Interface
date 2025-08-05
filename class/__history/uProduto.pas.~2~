@@ -1,0 +1,69 @@
+unit uProduto;
+
+interface
+
+uses
+  uProdutoInterface, SysUtils;
+
+type
+  TProduto = class(TInterfacedObject, IProduto)
+  private
+    FNome: string;
+    FQuantidade: Integer;
+  public
+    procedure SetNome(const Value: string);
+    procedure SetQuantidade(Value: Integer);
+    function GetNome: string;
+    function GetQuantidade: Integer;
+    function Mostrar: string;
+    function Validar: Boolean;
+  end;
+
+implementation
+
+{ TProduto }
+
+procedure TProduto.SetNome(const Value: string);
+begin
+  FNome := Trim(Value);
+end;
+
+procedure TProduto.SetQuantidade(Value: Integer);
+begin
+  FQuantidade := Value;
+end;
+
+function TProduto.GetNome: string;
+begin
+  Result := FNome;
+end;
+
+function TProduto.GetQuantidade: Integer;
+begin
+  Result := FQuantidade;
+end;
+
+function TProduto.Mostrar: string;
+begin
+  Result := Format('Produto: %s | Quantidade: %d', [FNome, FQuantidade]);
+end;
+
+function TProduto.Validar: Boolean;
+begin
+  Result := True;
+
+  if FNome = '' then
+  begin
+    raise Exception.Create('O nome do produto é obrigatório.');
+    Result := False;
+  end;
+
+  if FQuantidade <= 0 then
+  begin
+    raise Exception.Create('A quantidade deve ser maior que zero.');
+    Result := False;
+  end;
+end;
+
+end.
+

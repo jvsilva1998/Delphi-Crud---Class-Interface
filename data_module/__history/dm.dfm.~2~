@@ -1,0 +1,49 @@
+object DataModule2: TDataModule2
+  Height = 354
+  Width = 474
+  object FDConnection1: TFDConnection
+    Params.Strings = (
+      
+        'Database=C:\Users\PC\Downloads\Delphi - Class-interface\banco\DA' +
+        'DOS.FDB'
+      'User_Name=sysdba'
+      'Password=masterkey'
+      'Protocol=TCPIP'
+      'Server=127.0.0.1'
+      'Port=3050'
+      'DriverID=FB')
+    Connected = True
+    LoginPrompt = False
+    Left = 112
+    Top = 64
+  end
+  object qryProd: TFDQuery
+    Connection = FDConnection1
+    SQL.Strings = (
+      'select * from prod')
+    Left = 112
+    Top = 144
+    object qryProdID: TIntegerField
+      FieldName = 'ID'
+      Origin = 'ID'
+    end
+    object qryProdNOME: TStringField
+      FieldName = 'NOME'
+      Origin = 'NOME'
+      Size = 255
+    end
+    object qryProdQUANTIDADE: TIntegerField
+      FieldName = 'QUANTIDADE'
+      Origin = 'QUANTIDADE'
+    end
+  end
+  object FDGUIxWaitCursor1: TFDGUIxWaitCursor
+    Provider = 'Forms'
+    Left = 248
+    Top = 144
+  end
+  object FDPhysFBDriverLink1: TFDPhysFBDriverLink
+    Left = 248
+    Top = 64
+  end
+end

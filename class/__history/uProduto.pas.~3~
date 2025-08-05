@@ -1,0 +1,31 @@
+unit uProduto;
+
+interface
+
+uses
+  uProdutoInterface;
+
+type
+  TProduto = class(TInterfacedObject, IProduto)
+  private
+    FNome: string;
+    FQuantidade: Integer;
+  public
+    procedure SetNome(const Nome: string);
+    procedure SetQuantidade(const Quantidade: Integer);
+  end;
+
+implementation
+
+procedure TProduto.SetNome(const Nome: string);
+begin
+  FNome := Nome;
+end;
+
+procedure TProduto.SetQuantidade(const Quantidade: Integer);
+begin
+  FQuantidade := Quantidade;
+end;
+
+end.
+

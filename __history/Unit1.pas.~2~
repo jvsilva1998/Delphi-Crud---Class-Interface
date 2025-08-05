@@ -1,0 +1,53 @@
+unit Unit1;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons;
+
+type
+  TForm1 = class(TForm)
+    edtNome: TEdit;
+    edtQtd: TEdit;
+    BitBtn1: TBitBtn;
+    Memo1: TMemo;
+    procedure BitBtn1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+uses
+  Unit2, uProdutoInterface;
+
+{$R *.dfm}
+
+procedure TForm1.BitBtn1Click(Sender: TObject);
+var
+  Produto: IProduto;
+  Qtd: Integer;
+begin
+  if not TryStrToInt(edtQtd.Text, Qtd) then
+  begin
+    ShowMessage('Quantidade inválida');
+    Exit;
+  end;
+
+  Produto := TProduto.Create;
+  Produto.Nome := edtNome.Text;
+  Produto.Quantidade := Qtd;
+
+  Memo1.Lines.Add(Produto.Mostrar);
+
+  edtNome.Clear;
+  edtQtd.Clear;
+end;
+
+end.

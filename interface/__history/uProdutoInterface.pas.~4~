@@ -1,0 +1,14 @@
+unit uProdutoInterface;
+
+interface
+
+type
+  IProduto = interface
+    procedure SetNome(): string; overload;
+    procedure SetQuantidade():Integer ; overload;
+
+  end;
+
+implementation
+
+end.

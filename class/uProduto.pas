@@ -1,0 +1,114 @@
+unit uProduto;
+
+interface
+
+uses
+  FireDAC.Comp.Client, System.SysUtils;
+
+type
+  TProduto = class
+  private
+    FID: Integer;
+    FNome: string;
+    FQuantidade: Integer;
+    FConexao: TFDConnection;
+  public
+    constructor Create(AConexao: TFDConnection);
+    procedure SetID(const ID: Integer);
+    procedure SetNome(const Nome: string);
+    procedure SetQuantidade(const Quantidade: Integer);
+
+    procedure Post;
+    procedure Edit;
+    procedure Delete;
+    procedure Carregar(Destino: TFDQuery);
+  end;
+
+implementation
+
+{ TProduto }
+
+constructor TProduto.Create(AConexao: TFDConnection);
+begin
+  FConexao := AConexao;
+end;
+
+procedure TProduto.SetID(const ID: Integer);
+begin
+  FID := ID;
+end;
+
+procedure TProduto.SetNome(const Nome: string);
+begin
+  FNome := Trim(Nome);
+end;
+
+procedure TProduto.SetQuantidade(const Quantidade: Integer);
+begin
+  FQuantidade := Quantidade;
+end;
+
+procedure TProduto.Post;
+var
+  Qry: TFDQuery;
+begin
+  Qry := TFDQuery.Create(nil);
+  try
+    Qry.Connection := FConexao;
+    Qry.SQL.Text :=
+      'INSERT INTO PROD (NOME, QUANTIDADE) VALUES (:NOME, :QUANTIDADE)';
+    Qry.ParamByName('NOME').AsString := FNome;
+    Qry.ParamByName('QUANTIDADE').AsInteger := FQuantidade;
+    Qry.ExecSQL;
+  finally
+    Qry.Free;
+  end;
+end;
+
+procedure TProduto.Edit;
+var
+  Qry: TFDQuery;
+begin
+  if FID = 0 then
+    raise Exception.Create('ID do produto não definido para edição.');
+
+  Qry := TFDQuery.Create(nil);
+  try
+    Qry.Connection := FConexao;
+    Qry.SQL.Text :=
+      'UPDATE PROD SET NOME = :NOME, QUANTIDADE = :QUANTIDADE WHERE ID = :ID';
+    Qry.ParamByName('NOME').AsString := FNome;
+    Qry.ParamByName('QUANTIDADE').AsInteger := FQuantidade;
+    Qry.ParamByName('ID').AsInteger := FID;
+    Qry.ExecSQL;
+  finally
+    Qry.Free;
+  end;
+end;
+
+procedure TProduto.Delete;
+var
+  Qry: TFDQuery;
+begin
+  if FID = 0 then
+    raise Exception.Create('ID do produto não definido para exclusão.');
+
+  Qry := TFDQuery.Create(nil);
+  try
+    Qry.Connection := FConexao;
+    Qry.SQL.Text := 'DELETE FROM PROD WHERE ID = :ID';
+    Qry.ParamByName('ID').AsInteger := FID;
+    Qry.ExecSQL;
+  finally
+    Qry.Free;
+  end;
+end;
+
+procedure TProduto.Carregar(Destino: TFDQuery);
+begin
+  Destino.Close;
+  Destino.SQL.Text := 'SELECT * FROM PROD ORDER BY ID';
+  Destino.Open;
+end;
+
+end.

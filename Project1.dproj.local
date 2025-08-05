@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2024/05/04 10:49:18.000.202,=C:\Users\PC\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2024/11/02 10:50:29.000.765,=C:\Users\PC\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2025/08/04 21:44:17.000.249,=C:\Users\PC\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2025/08/04 22:08:37.000.162,=C:\Users\PC\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2025/08/04 22:09:07.000.730,C:\Users\PC\Documents\Embarcadero\Studio\Projects\Unit1.dfm=C:\Users\PC\Downloads\Delphi - Class-interface\Unit1.dfm</Transaction>
+    <Transaction>2025/08/04 22:09:07.000.730,C:\Users\PC\Documents\Embarcadero\Studio\Projects\Unit1.pas=C:\Users\PC\Downloads\Delphi - Class-interface\Unit1.pas</Transaction>
+    <Transaction>2025/08/04 22:09:16.000.801,C:\Users\PC\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\Users\PC\Downloads\Delphi - Class-interface\Project1.dproj</Transaction>
+    <Transaction>2025/08/04 22:09:38.000.713,=C:\Users\PC\Downloads\Delphi - Class-interface\Unit2.pas</Transaction>
+    <Transaction>2025/08/04 22:10:17.000.308,C:\Users\PC\Downloads\Delphi - Class-interface\Unit2.pas=C:\Users\PC\Downloads\Delphi - Class-interface\class\Unit2.pas</Transaction>
+    <Transaction>2025/08/04 23:32:29.000.026,=C:\Users\PC\Downloads\Delphi - Class-interface\Unit3.pas</Transaction>
+    <Transaction>2025/08/04 23:32:43.000.533,C:\Users\PC\Downloads\Delphi - Class-interface\Unit3.pas=C:\Users\PC\Downloads\Delphi - Class-interface\interface\uProdutoInterface.pas</Transaction>
+    <Transaction>2025/08/04 23:37:10.000.428,C:\Users\PC\Downloads\Delphi - Class-interface\class\Unit2.pas=C:\Users\PC\Downloads\Delphi - Class-interface\class\uProduto.pas</Transaction>
+    <Transaction>2025/08/05 09:54:22.901,=C:\Users\PC\Downloads\Delphi - Class-interface\Unit2.pas</Transaction>
+    <Transaction>2025/08/05 09:58:16.543,C:\Users\PC\Downloads\Delphi - Class-interface\data_module\dm.dfm=C:\Users\PC\Downloads\Delphi - Class-interface\Unit2.dfm</Transaction>
+    <Transaction>2025/08/05 09:58:16.543,C:\Users\PC\Downloads\Delphi - Class-interface\data_module\dm.pas=C:\Users\PC\Downloads\Delphi - Class-interface\Unit2.pas</Transaction>
+  </Transactions>
+</BorlandProject>

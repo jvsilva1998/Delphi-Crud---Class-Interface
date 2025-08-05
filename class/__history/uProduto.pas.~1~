@@ -1,0 +1,51 @@
+unit unit2;
+
+interface
+
+uses
+  uProdutoInterface, SysUtils;
+
+type
+  TProduto = class(TInterfacedObject, IProduto)
+  private
+    FNome: string;
+    FQuantidade: Integer;
+  public
+    procedure SetNome(const Value: string);
+    procedure SetQuantidade(Value: Integer);
+    function GetNome: string;
+    function GetQuantidade: Integer;
+    function Mostrar: string;
+  end;
+
+implementation
+
+{ TProduto }
+
+procedure TProduto.SetNome(const Value: string);
+begin
+  FNome := Value;
+end;
+
+procedure TProduto.SetQuantidade(Value: Integer);
+begin
+  FQuantidade := Value;
+end;
+
+function TProduto.GetNome: string;
+begin
+  Result := FNome;
+end;
+
+function TProduto.GetQuantidade: Integer;
+begin
+  Result := FQuantidade;
+end;
+
+function TProduto.Mostrar: string;
+begin
+  Result := Format('Produto: %s | Quantidade: %d', [FNome, FQuantidade]);
+end;
+
+end.
+

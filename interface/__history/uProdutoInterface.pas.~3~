@@ -1,0 +1,22 @@
+unit uProdutoInterface;
+
+interface
+
+type
+  IProduto = interface
+    ['{A0B72C2E-4D7C-41AD-B62D-123456789ABC}']
+    procedure SetNome(const Value: string);
+    procedure SetQuantidade(Value: Integer);
+    function GetNome: string;
+    function GetQuantidade: Integer;
+    function Mostrar: string;
+    function Validar: Boolean;
+
+    property Nome: string read GetNome write SetNome;
+    property Quantidade: Integer read GetQuantidade write SetQuantidade;
+  end;
+
+implementation
+
+end.
+
